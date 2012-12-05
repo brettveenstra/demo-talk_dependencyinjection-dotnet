@@ -1,14 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace DIDemo
 {
-  class Program
+  internal class Program
   {
-    static void Main(string[] args)
+    private static void Main(string[] args)
     {
+      Report report = new Report();
+      report.Print();
+
+      Console.WriteLine("\n\r\n\rReport printed... Hit any key");
+      Console.ReadKey();
     }
   }
 }
