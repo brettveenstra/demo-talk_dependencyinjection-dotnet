@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DIDemo
+namespace DIDemo_Injected
 {
   public class ReportDataElement
   {
