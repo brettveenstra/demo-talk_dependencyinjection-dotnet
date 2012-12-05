@@ -10,8 +10,11 @@ namespace DIDemo_Injected
       var bootstrap = new BootStrap();
       IContainer container = bootstrap.Initalize();
 
-      Report report = container.GetInstance<Report>();
-      report.Print();
+      for (int i = 0; i < 20; i++)
+      {
+        Report report = container.GetInstance<Report>();
+        report.Print();
+      }
 
       Console.WriteLine("\n\r\n\rReport printed... Hit any key");
       Console.ReadKey();

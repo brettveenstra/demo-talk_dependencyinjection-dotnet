@@ -14,6 +14,7 @@ namespace DIDemo_Injected
           c.For<IReportFormatter>()
            .Use<ReportFormatter>();
           c.For<IPrinter>()
+           .Singleton()
            .Use<Printer>();
         });
 
