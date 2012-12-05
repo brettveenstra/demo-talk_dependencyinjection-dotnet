@@ -6,14 +6,15 @@ namespace DIDemo_Injected
   {
     private static void Main(string[] args)
     {
-      IDataAccess dataAccess = new DataAccess();
-      IReportFormatter formatter = new ReportFormatter();
-      IPrinter printer = new Printer();
-      
-      Report report = new Report(dataAccess, formatter, printer);
-      report.Print();
+      // batch reporting with Factory
+      for (int i = 0; i < 100; i++)
+      {
 
-      Console.WriteLine("\n\r\n\rReport printed... Hit any key");
+        Report report = new ReportFactory().Create();
+        report.Print();
+      }
+
+      Console.WriteLine("\n\r\n\rReports printed... Hit any key");
       Console.ReadKey();
     }
   }
