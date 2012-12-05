@@ -1,4 +1,5 @@
 ﻿using System;
+using StructureMap;
 
 namespace DIDemo_Injected
 {
@@ -6,11 +7,10 @@ namespace DIDemo_Injected
   {
     private static void Main(string[] args)
     {
-      IDataAccess dataAccess = new DataAccess();
-      IReportFormatter formatter = new ReportFormatter();
-      IPrinter printer = new Printer();
-      
-      Report report = new Report(dataAccess, formatter, printer);
+      var bootstrap = new BootStrap();
+      IContainer container = bootstrap.Initalize();
+
+      Report report = container.GetInstance<Report>();
       report.Print();
 
       Console.WriteLine("\n\r\n\rReport printed... Hit any key");
