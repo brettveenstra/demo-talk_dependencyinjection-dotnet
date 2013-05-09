@@ -9,12 +9,15 @@ namespace DIDemo_Injected
       var container = new Container(
         c =>
         {
-          c.For<IDataAccess>()
-           .Use<DataAccess>();
-          c.For<IReportFormatter>()
-           .Use<ReportFormatter>();
-          c.For<IPrinter>()
+          c.Scan(
+            s =>
+            {
+              s.TheCallingAssembly();
+              s.WithDefaultConventions();
+            });
+          c.For<IPrinter>().Singleton()
            .Use<Printer>();
+
         });
 
       return container;
